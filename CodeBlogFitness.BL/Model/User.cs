@@ -5,6 +5,7 @@ namespace CodeBlogFitness.BL.Model
     /// <summary>
     /// User.
     /// </summary>
+    [Serializable]
     public class User
     {
         #region Properties
@@ -55,7 +56,7 @@ namespace CodeBlogFitness.BL.Model
                 throw new ArgumentNullException("User gender can't be empty or null.", nameof(gender));
             }
 
-            if (birthDate < DateTime.Parse("01.01.1900") || birthDate <= DateTime.Now)
+            if (birthDate < DateTime.Parse("01.01.1900") || birthDate >= DateTime.Now)
             {
                 throw new ArgumentException("Invalid birth date.", nameof (birthDate));
             }
